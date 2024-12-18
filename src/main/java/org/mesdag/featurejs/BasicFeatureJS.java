@@ -1,17 +1,25 @@
 package org.mesdag.featurejs;
 
+import com.google.gson.JsonObject;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import dev.latvian.mods.kubejs.registry.BuilderBase;
 import dev.latvian.mods.kubejs.registry.RegistryInfo;
+import dev.latvian.mods.rhino.util.HideFromJS;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.LevelWriter;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import org.jetbrains.annotations.NotNull;
+import org.spongepowered.asm.mixin.injection.invoke.arg.ArgumentCountException;
 
 import java.util.Objects;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 @SuppressWarnings({"rawtypes", "unchecked", "unused"})
 public class BasicFeatureJS extends Feature<BasicFeatureJS.Config> {
@@ -27,206 +35,40 @@ public class BasicFeatureJS extends Feature<BasicFeatureJS.Config> {
         return builder.placeFunction.apply(context);
     }
 
-    public static class Config<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16> implements FeatureConfiguration {
-        public T1 t1;
-        public T2 t2;
-        public T3 t3;
-        public T4 t4;
-        public T5 t5;
-        public T6 t6;
-        public T7 t7;
-        public T8 t8;
-        public T9 t9;
-        public T10 t10;
-        public T11 t11;
-        public T12 t12;
-        public T13 t13;
-        public T14 t14;
-        public T15 t15;
-        public T16 t16;
+    @Override
+    public void setBlock(@NotNull LevelWriter level, @NotNull BlockPos pos, @NotNull BlockState state) {
+        super.setBlock(level, pos, state);
+    }
 
-        public Config(T1 t1) {
-            this.t1 = t1;
+    @Override
+    public void safeSetBlock(@NotNull WorldGenLevel level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Predicate<BlockState> predicate) {
+        super.safeSetBlock(level, pos, state, predicate);
+    }
+
+    public static class Config implements FeatureConfiguration {
+        @HideFromJS
+        Object[] arguments;
+
+        public Config(Object... arguments) {
+            if (arguments.length == 0) {
+                throw new ArgumentCountException(0, 1, getClass().getName());
+            }
+            if (arguments.length > 16) {
+                throw new ArgumentCountException(arguments.length, 16, getClass().getName());
+            }
+            this.arguments = arguments;
         }
 
-        public Config(T1 t1, T2 t2) {
-            this.t1 = t1;
-            this.t2 = t2;
+        public Object get(int index) {
+            return arguments[index];
         }
 
-        public Config(T1 t1, T2 t2, T3 t3) {
-            this.t1 = t1;
-            this.t2 = t2;
-            this.t3 = t3;
+        public <T> T get(int index, Class<T> type) {
+            return (T) get(index);
         }
 
-        public Config(T1 t1, T2 t2, T3 t3, T4 t4) {
-            this.t1 = t1;
-            this.t2 = t2;
-            this.t3 = t3;
-            this.t4 = t4;
-        }
-
-        public Config(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5) {
-            this.t1 = t1;
-            this.t2 = t2;
-            this.t3 = t3;
-            this.t4 = t4;
-            this.t5 = t5;
-        }
-
-        public Config(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6) {
-            this.t1 = t1;
-            this.t2 = t2;
-            this.t3 = t3;
-            this.t4 = t4;
-            this.t5 = t5;
-            this.t6 = t6;
-        }
-
-        public Config(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7) {
-            this.t1 = t1;
-            this.t2 = t2;
-            this.t3 = t3;
-            this.t4 = t4;
-            this.t5 = t5;
-            this.t6 = t6;
-            this.t7 = t7;
-        }
-
-        public Config(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8) {
-            this.t1 = t1;
-            this.t2 = t2;
-            this.t3 = t3;
-            this.t4 = t4;
-            this.t5 = t5;
-            this.t6 = t6;
-            this.t7 = t7;
-            this.t8 = t8;
-        }
-
-        public Config(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8, T9 t9) {
-            this.t1 = t1;
-            this.t2 = t2;
-            this.t3 = t3;
-            this.t4 = t4;
-            this.t5 = t5;
-            this.t6 = t6;
-            this.t7 = t7;
-            this.t8 = t8;
-            this.t9 = t9;
-        }
-
-        public Config(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8, T9 t9, T10 t10) {
-            this.t1 = t1;
-            this.t2 = t2;
-            this.t3 = t3;
-            this.t4 = t4;
-            this.t5 = t5;
-            this.t6 = t6;
-            this.t7 = t7;
-            this.t8 = t8;
-            this.t9 = t9;
-            this.t10 = t10;
-        }
-
-        public Config(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8, T9 t9, T10 t10, T11 t11) {
-            this.t1 = t1;
-            this.t2 = t2;
-            this.t3 = t3;
-            this.t4 = t4;
-            this.t5 = t5;
-            this.t6 = t6;
-            this.t7 = t7;
-            this.t8 = t8;
-            this.t9 = t9;
-            this.t10 = t10;
-            this.t11 = t11;
-        }
-
-        public Config(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8, T9 t9, T10 t10, T11 t11, T12 t12) {
-            this.t1 = t1;
-            this.t2 = t2;
-            this.t3 = t3;
-            this.t4 = t4;
-            this.t5 = t5;
-            this.t6 = t6;
-            this.t7 = t7;
-            this.t8 = t8;
-            this.t9 = t9;
-            this.t10 = t10;
-            this.t11 = t11;
-            this.t12 = t12;
-        }
-
-        public Config(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8, T9 t9, T10 t10, T11 t11, T12 t12, T13 t13) {
-            this.t1 = t1;
-            this.t2 = t2;
-            this.t3 = t3;
-            this.t4 = t4;
-            this.t5 = t5;
-            this.t6 = t6;
-            this.t7 = t7;
-            this.t8 = t8;
-            this.t9 = t9;
-            this.t10 = t10;
-            this.t11 = t11;
-            this.t12 = t12;
-            this.t13 = t13;
-        }
-
-        public Config(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8, T9 t9, T10 t10, T11 t11, T12 t12, T13 t13, T14 t14) {
-            this.t1 = t1;
-            this.t2 = t2;
-            this.t3 = t3;
-            this.t4 = t4;
-            this.t5 = t5;
-            this.t6 = t6;
-            this.t7 = t7;
-            this.t8 = t8;
-            this.t9 = t9;
-            this.t10 = t10;
-            this.t11 = t11;
-            this.t12 = t12;
-            this.t13 = t13;
-            this.t14 = t14;
-        }
-
-        public Config(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8, T9 t9, T10 t10, T11 t11, T12 t12, T13 t13, T14 t14, T15 t15) {
-            this.t1 = t1;
-            this.t2 = t2;
-            this.t3 = t3;
-            this.t4 = t4;
-            this.t5 = t5;
-            this.t6 = t6;
-            this.t7 = t7;
-            this.t8 = t8;
-            this.t9 = t9;
-            this.t10 = t10;
-            this.t11 = t11;
-            this.t12 = t12;
-            this.t13 = t13;
-            this.t14 = t14;
-            this.t15 = t15;
-        }
-
-        public Config(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8, T9 t9, T10 t10, T11 t11, T12 t12, T13 t13, T14 t14, T15 t15, T16 t16) {
-            this.t1 = t1;
-            this.t2 = t2;
-            this.t3 = t3;
-            this.t4 = t4;
-            this.t5 = t5;
-            this.t6 = t6;
-            this.t7 = t7;
-            this.t8 = t8;
-            this.t9 = t9;
-            this.t10 = t10;
-            this.t11 = t11;
-            this.t12 = t12;
-            this.t13 = t13;
-            this.t14 = t14;
-            this.t15 = t15;
-            this.t16 = t16;
+        public Number getAsNumber(int index) {
+            return (Number) get(index);
         }
     }
 
@@ -239,6 +81,9 @@ public class BasicFeatureJS extends Feature<BasicFeatureJS.Config> {
         }
 
         public Builder codec(MapCodec<?>... mapCodecs) {
+            if (mapCodecs.length == 0) {
+                throw new RuntimeException("Codec count at least 1, but received 0");
+            }
             CodecBuilder builder = new CodecBuilder();
             for (MapCodec<?> mapCodec : mapCodecs) {
                 builder.argument(mapCodec);
@@ -249,6 +94,10 @@ public class BasicFeatureJS extends Feature<BasicFeatureJS.Config> {
 
         public Builder place(Function<FeaturePlaceContext<Config>, Boolean> function) {
             this.placeFunction = function;
+            return this;
+        }
+
+        public Builder config(JsonObject config) {
             return this;
         }
 

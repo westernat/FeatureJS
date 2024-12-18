@@ -7,7 +7,7 @@ import dev.latvian.mods.rhino.util.HideFromJS;
 import org.spongepowered.asm.mixin.injection.invoke.arg.ArgumentCountException;
 
 @HideFromJS
-@SuppressWarnings({"rawtypes", "unchecked", "unused"})
+@SuppressWarnings({"unchecked", "unused"})
 public class CodecBuilder<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16> {
     private MapCodec<T1> t1;
     private MapCodec<T2> t2;
@@ -70,201 +70,201 @@ public class CodecBuilder<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13
         }
         if (t2 == null) {
             return RecordCodecBuilder.create(instance -> instance.group(
-                    t1.forGetter(config -> (T1) config.t1)
+                    t1.forGetter(config -> (T1) config.arguments[0])
             ).apply(instance, BasicFeatureJS.Config::new));
         }
         if (t3 == null) {
             return RecordCodecBuilder.create(instance -> instance.group(
-                    t1.forGetter(config -> (T1) config.t1),
-                    t2.forGetter(config -> (T2) config.t2)
+                    t1.forGetter(config -> (T1) config.arguments[0]),
+                    t2.forGetter(config -> (T2) config.arguments[1])
             ).apply(instance, BasicFeatureJS.Config::new));
         }
         if (t4 == null) {
             return RecordCodecBuilder.create(instance -> instance.group(
-                    t1.forGetter(config -> (T1) config.t1),
-                    t2.forGetter(config -> (T2) config.t2),
-                    t3.forGetter(config -> (T3) config.t3)
+                    t1.forGetter(config -> (T1) config.arguments[0]),
+                    t2.forGetter(config -> (T2) config.arguments[1]),
+                    t3.forGetter(config -> (T3) config.arguments[2])
             ).apply(instance, BasicFeatureJS.Config::new));
         }
         if (t5 == null) {
             return RecordCodecBuilder.create(instance -> instance.group(
-                    t1.forGetter(config -> (T1) config.t1),
-                    t2.forGetter(config -> (T2) config.t2),
-                    t3.forGetter(config -> (T3) config.t3),
-                    t4.forGetter(config -> (T4) config.t4)
+                    t1.forGetter(config -> (T1) config.arguments[0]),
+                    t2.forGetter(config -> (T2) config.arguments[1]),
+                    t3.forGetter(config -> (T3) config.arguments[2]),
+                    t4.forGetter(config -> (T4) config.arguments[3])
             ).apply(instance, BasicFeatureJS.Config::new));
         }
         if (t6 == null) {
             return RecordCodecBuilder.create(instance -> instance.group(
-                    t1.forGetter(config -> (T1) config.t1),
-                    t2.forGetter(config -> (T2) config.t2),
-                    t3.forGetter(config -> (T3) config.t3),
-                    t4.forGetter(config -> (T4) config.t4),
-                    t5.forGetter(config -> (T5) config.t5)
+                    t1.forGetter(config -> (T1) config.arguments[0]),
+                    t2.forGetter(config -> (T2) config.arguments[1]),
+                    t3.forGetter(config -> (T3) config.arguments[2]),
+                    t4.forGetter(config -> (T4) config.arguments[3]),
+                    t5.forGetter(config -> (T5) config.arguments[4])
             ).apply(instance, BasicFeatureJS.Config::new));
         }
         if (t7 == null) {
             return RecordCodecBuilder.create(instance -> instance.group(
-                    t1.forGetter(config -> (T1) config.t1),
-                    t2.forGetter(config -> (T2) config.t2),
-                    t3.forGetter(config -> (T3) config.t3),
-                    t4.forGetter(config -> (T4) config.t4),
-                    t5.forGetter(config -> (T5) config.t5),
-                    t6.forGetter(config -> (T6) config.t6)
+                    t1.forGetter(config -> (T1) config.arguments[0]),
+                    t2.forGetter(config -> (T2) config.arguments[1]),
+                    t3.forGetter(config -> (T3) config.arguments[2]),
+                    t4.forGetter(config -> (T4) config.arguments[3]),
+                    t5.forGetter(config -> (T5) config.arguments[4]),
+                    t6.forGetter(config -> (T6) config.arguments[5])
             ).apply(instance, BasicFeatureJS.Config::new));
         }
         if (t8 == null) {
             return RecordCodecBuilder.create(instance -> instance.group(
-                    t1.forGetter(config -> (T1) config.t1),
-                    t2.forGetter(config -> (T2) config.t2),
-                    t3.forGetter(config -> (T3) config.t3),
-                    t4.forGetter(config -> (T4) config.t4),
-                    t5.forGetter(config -> (T5) config.t5),
-                    t6.forGetter(config -> (T6) config.t6),
-                    t7.forGetter(config -> (T7) config.t7)
+                    t1.forGetter(config -> (T1) config.arguments[0]),
+                    t2.forGetter(config -> (T2) config.arguments[1]),
+                    t3.forGetter(config -> (T3) config.arguments[2]),
+                    t4.forGetter(config -> (T4) config.arguments[3]),
+                    t5.forGetter(config -> (T5) config.arguments[4]),
+                    t6.forGetter(config -> (T6) config.arguments[5]),
+                    t7.forGetter(config -> (T7) config.arguments[6])
             ).apply(instance, BasicFeatureJS.Config::new));
         }
         if (t9 == null) {
             return RecordCodecBuilder.create(instance -> instance.group(
-                    t1.forGetter(config -> (T1) config.t1),
-                    t2.forGetter(config -> (T2) config.t2),
-                    t3.forGetter(config -> (T3) config.t3),
-                    t4.forGetter(config -> (T4) config.t4),
-                    t5.forGetter(config -> (T5) config.t5),
-                    t6.forGetter(config -> (T6) config.t6),
-                    t7.forGetter(config -> (T7) config.t7),
-                    t8.forGetter(config -> (T8) config.t8)
+                    t1.forGetter(config -> (T1) config.arguments[0]),
+                    t2.forGetter(config -> (T2) config.arguments[1]),
+                    t3.forGetter(config -> (T3) config.arguments[2]),
+                    t4.forGetter(config -> (T4) config.arguments[3]),
+                    t5.forGetter(config -> (T5) config.arguments[4]),
+                    t6.forGetter(config -> (T6) config.arguments[5]),
+                    t7.forGetter(config -> (T7) config.arguments[6]),
+                    t8.forGetter(config -> (T8) config.arguments[7])
             ).apply(instance, BasicFeatureJS.Config::new));
         }
         if (t10 == null) {
             return RecordCodecBuilder.create(instance -> instance.group(
-                    t1.forGetter(config -> (T1) config.t1),
-                    t2.forGetter(config -> (T2) config.t2),
-                    t3.forGetter(config -> (T3) config.t3),
-                    t4.forGetter(config -> (T4) config.t4),
-                    t5.forGetter(config -> (T5) config.t5),
-                    t6.forGetter(config -> (T6) config.t6),
-                    t7.forGetter(config -> (T7) config.t7),
-                    t8.forGetter(config -> (T8) config.t8),
-                    t9.forGetter(config -> (T9) config.t9)
+                    t1.forGetter(config -> (T1) config.arguments[0]),
+                    t2.forGetter(config -> (T2) config.arguments[1]),
+                    t3.forGetter(config -> (T3) config.arguments[2]),
+                    t4.forGetter(config -> (T4) config.arguments[3]),
+                    t5.forGetter(config -> (T5) config.arguments[4]),
+                    t6.forGetter(config -> (T6) config.arguments[5]),
+                    t7.forGetter(config -> (T7) config.arguments[6]),
+                    t8.forGetter(config -> (T8) config.arguments[7]),
+                    t9.forGetter(config -> (T9) config.arguments[8])
             ).apply(instance, BasicFeatureJS.Config::new));
         }
         if (t11 == null) {
             return RecordCodecBuilder.create(instance -> instance.group(
-                    t1.forGetter(config -> (T1) config.t1),
-                    t2.forGetter(config -> (T2) config.t2),
-                    t3.forGetter(config -> (T3) config.t3),
-                    t4.forGetter(config -> (T4) config.t4),
-                    t5.forGetter(config -> (T5) config.t5),
-                    t6.forGetter(config -> (T6) config.t6),
-                    t7.forGetter(config -> (T7) config.t7),
-                    t8.forGetter(config -> (T8) config.t8),
-                    t9.forGetter(config -> (T9) config.t9),
-                    t10.forGetter(config -> (T10) config.t10)
+                    t1.forGetter(config -> (T1) config.arguments[0]),
+                    t2.forGetter(config -> (T2) config.arguments[1]),
+                    t3.forGetter(config -> (T3) config.arguments[2]),
+                    t4.forGetter(config -> (T4) config.arguments[3]),
+                    t5.forGetter(config -> (T5) config.arguments[4]),
+                    t6.forGetter(config -> (T6) config.arguments[5]),
+                    t7.forGetter(config -> (T7) config.arguments[6]),
+                    t8.forGetter(config -> (T8) config.arguments[7]),
+                    t9.forGetter(config -> (T9) config.arguments[8]),
+                    t10.forGetter(config -> (T10) config.arguments[9])
             ).apply(instance, BasicFeatureJS.Config::new));
         }
         if (t12 == null) {
             return RecordCodecBuilder.create(instance -> instance.group(
-                    t1.forGetter(config -> (T1) config.t1),
-                    t2.forGetter(config -> (T2) config.t2),
-                    t3.forGetter(config -> (T3) config.t3),
-                    t4.forGetter(config -> (T4) config.t4),
-                    t5.forGetter(config -> (T5) config.t5),
-                    t6.forGetter(config -> (T6) config.t6),
-                    t7.forGetter(config -> (T7) config.t7),
-                    t8.forGetter(config -> (T8) config.t8),
-                    t9.forGetter(config -> (T9) config.t9),
-                    t10.forGetter(config -> (T10) config.t10),
-                    t11.forGetter(config -> (T11) config.t11)
+                    t1.forGetter(config -> (T1) config.arguments[0]),
+                    t2.forGetter(config -> (T2) config.arguments[1]),
+                    t3.forGetter(config -> (T3) config.arguments[2]),
+                    t4.forGetter(config -> (T4) config.arguments[3]),
+                    t5.forGetter(config -> (T5) config.arguments[4]),
+                    t6.forGetter(config -> (T6) config.arguments[5]),
+                    t7.forGetter(config -> (T7) config.arguments[6]),
+                    t8.forGetter(config -> (T8) config.arguments[7]),
+                    t9.forGetter(config -> (T9) config.arguments[8]),
+                    t10.forGetter(config -> (T10) config.arguments[9]),
+                    t11.forGetter(config -> (T11) config.arguments[10])
             ).apply(instance, BasicFeatureJS.Config::new));
         }
         if (t13 == null) {
             return RecordCodecBuilder.create(instance -> instance.group(
-                    t1.forGetter(config -> (T1) config.t1),
-                    t2.forGetter(config -> (T2) config.t2),
-                    t3.forGetter(config -> (T3) config.t3),
-                    t4.forGetter(config -> (T4) config.t4),
-                    t5.forGetter(config -> (T5) config.t5),
-                    t6.forGetter(config -> (T6) config.t6),
-                    t7.forGetter(config -> (T7) config.t7),
-                    t8.forGetter(config -> (T8) config.t8),
-                    t9.forGetter(config -> (T9) config.t9),
-                    t10.forGetter(config -> (T10) config.t10),
-                    t11.forGetter(config -> (T11) config.t11),
-                    t12.forGetter(config -> (T12) config.t12)
+                    t1.forGetter(config -> (T1) config.arguments[0]),
+                    t2.forGetter(config -> (T2) config.arguments[1]),
+                    t3.forGetter(config -> (T3) config.arguments[2]),
+                    t4.forGetter(config -> (T4) config.arguments[3]),
+                    t5.forGetter(config -> (T5) config.arguments[4]),
+                    t6.forGetter(config -> (T6) config.arguments[5]),
+                    t7.forGetter(config -> (T7) config.arguments[6]),
+                    t8.forGetter(config -> (T8) config.arguments[7]),
+                    t9.forGetter(config -> (T9) config.arguments[8]),
+                    t10.forGetter(config -> (T10) config.arguments[9]),
+                    t11.forGetter(config -> (T11) config.arguments[10]),
+                    t12.forGetter(config -> (T12) config.arguments[11])
             ).apply(instance, BasicFeatureJS.Config::new));
         }
         if (t14 == null) {
             return RecordCodecBuilder.create(instance -> instance.group(
-                    t1.forGetter(config -> (T1) config.t1),
-                    t2.forGetter(config -> (T2) config.t2),
-                    t3.forGetter(config -> (T3) config.t3),
-                    t4.forGetter(config -> (T4) config.t4),
-                    t5.forGetter(config -> (T5) config.t5),
-                    t6.forGetter(config -> (T6) config.t6),
-                    t7.forGetter(config -> (T7) config.t7),
-                    t8.forGetter(config -> (T8) config.t8),
-                    t9.forGetter(config -> (T9) config.t9),
-                    t10.forGetter(config -> (T10) config.t10),
-                    t11.forGetter(config -> (T11) config.t11),
-                    t12.forGetter(config -> (T12) config.t12),
-                    t13.forGetter(config -> (T13) config.t13)
+                    t1.forGetter(config -> (T1) config.arguments[0]),
+                    t2.forGetter(config -> (T2) config.arguments[1]),
+                    t3.forGetter(config -> (T3) config.arguments[2]),
+                    t4.forGetter(config -> (T4) config.arguments[3]),
+                    t5.forGetter(config -> (T5) config.arguments[4]),
+                    t6.forGetter(config -> (T6) config.arguments[5]),
+                    t7.forGetter(config -> (T7) config.arguments[6]),
+                    t8.forGetter(config -> (T8) config.arguments[7]),
+                    t9.forGetter(config -> (T9) config.arguments[8]),
+                    t10.forGetter(config -> (T10) config.arguments[9]),
+                    t11.forGetter(config -> (T11) config.arguments[10]),
+                    t12.forGetter(config -> (T12) config.arguments[11]),
+                    t13.forGetter(config -> (T13) config.arguments[12])
             ).apply(instance, BasicFeatureJS.Config::new));
         }
         if (t15 == null) {
             return RecordCodecBuilder.create(instance -> instance.group(
-                    t1.forGetter(config -> (T1) config.t1),
-                    t2.forGetter(config -> (T2) config.t2),
-                    t3.forGetter(config -> (T3) config.t3),
-                    t4.forGetter(config -> (T4) config.t4),
-                    t5.forGetter(config -> (T5) config.t5),
-                    t6.forGetter(config -> (T6) config.t6),
-                    t7.forGetter(config -> (T7) config.t7),
-                    t8.forGetter(config -> (T8) config.t8),
-                    t9.forGetter(config -> (T9) config.t9),
-                    t10.forGetter(config -> (T10) config.t10),
-                    t11.forGetter(config -> (T11) config.t11),
-                    t12.forGetter(config -> (T12) config.t12),
-                    t13.forGetter(config -> (T13) config.t13),
-                    t14.forGetter(config -> (T14) config.t14)
+                    t1.forGetter(config -> (T1) config.arguments[0]),
+                    t2.forGetter(config -> (T2) config.arguments[1]),
+                    t3.forGetter(config -> (T3) config.arguments[2]),
+                    t4.forGetter(config -> (T4) config.arguments[3]),
+                    t5.forGetter(config -> (T5) config.arguments[4]),
+                    t6.forGetter(config -> (T6) config.arguments[5]),
+                    t7.forGetter(config -> (T7) config.arguments[6]),
+                    t8.forGetter(config -> (T8) config.arguments[7]),
+                    t9.forGetter(config -> (T9) config.arguments[8]),
+                    t10.forGetter(config -> (T10) config.arguments[9]),
+                    t11.forGetter(config -> (T11) config.arguments[10]),
+                    t12.forGetter(config -> (T12) config.arguments[11]),
+                    t13.forGetter(config -> (T13) config.arguments[12]),
+                    t14.forGetter(config -> (T14) config.arguments[13])
             ).apply(instance, BasicFeatureJS.Config::new));
         }
         if (t16 == null) {
             return RecordCodecBuilder.create(instance -> instance.group(
-                    t1.forGetter(config -> (T1) config.t1),
-                    t2.forGetter(config -> (T2) config.t2),
-                    t3.forGetter(config -> (T3) config.t3),
-                    t4.forGetter(config -> (T4) config.t4),
-                    t5.forGetter(config -> (T5) config.t5),
-                    t6.forGetter(config -> (T6) config.t6),
-                    t7.forGetter(config -> (T7) config.t7),
-                    t8.forGetter(config -> (T8) config.t8),
-                    t9.forGetter(config -> (T9) config.t9),
-                    t10.forGetter(config -> (T10) config.t10),
-                    t11.forGetter(config -> (T11) config.t11),
-                    t12.forGetter(config -> (T12) config.t12),
-                    t13.forGetter(config -> (T13) config.t13),
-                    t14.forGetter(config -> (T14) config.t14),
-                    t15.forGetter(config -> (T15) config.t15)
+                    t1.forGetter(config -> (T1) config.arguments[0]),
+                    t2.forGetter(config -> (T2) config.arguments[1]),
+                    t3.forGetter(config -> (T3) config.arguments[2]),
+                    t4.forGetter(config -> (T4) config.arguments[3]),
+                    t5.forGetter(config -> (T5) config.arguments[4]),
+                    t6.forGetter(config -> (T6) config.arguments[5]),
+                    t7.forGetter(config -> (T7) config.arguments[6]),
+                    t8.forGetter(config -> (T8) config.arguments[7]),
+                    t9.forGetter(config -> (T9) config.arguments[8]),
+                    t10.forGetter(config -> (T10) config.arguments[9]),
+                    t11.forGetter(config -> (T11) config.arguments[10]),
+                    t12.forGetter(config -> (T12) config.arguments[11]),
+                    t13.forGetter(config -> (T13) config.arguments[12]),
+                    t14.forGetter(config -> (T14) config.arguments[13]),
+                    t15.forGetter(config -> (T15) config.arguments[14])
             ).apply(instance, BasicFeatureJS.Config::new));
         }
         return RecordCodecBuilder.create(instance -> instance.group(
-                t1.forGetter(config -> (T1) config.t1),
-                t2.forGetter(config -> (T2) config.t2),
-                t3.forGetter(config -> (T3) config.t3),
-                t4.forGetter(config -> (T4) config.t4),
-                t5.forGetter(config -> (T5) config.t5),
-                t6.forGetter(config -> (T6) config.t6),
-                t7.forGetter(config -> (T7) config.t7),
-                t8.forGetter(config -> (T8) config.t8),
-                t9.forGetter(config -> (T9) config.t9),
-                t10.forGetter(config -> (T10) config.t10),
-                t11.forGetter(config -> (T11) config.t11),
-                t12.forGetter(config -> (T12) config.t12),
-                t13.forGetter(config -> (T13) config.t13),
-                t14.forGetter(config -> (T14) config.t14),
-                t15.forGetter(config -> (T15) config.t15),
-                t16.forGetter(config -> (T16) config.t16)
+                t1.forGetter(config -> (T1) config.arguments[0]),
+                t2.forGetter(config -> (T2) config.arguments[1]),
+                t3.forGetter(config -> (T3) config.arguments[2]),
+                t4.forGetter(config -> (T4) config.arguments[3]),
+                t5.forGetter(config -> (T5) config.arguments[4]),
+                t6.forGetter(config -> (T6) config.arguments[5]),
+                t7.forGetter(config -> (T7) config.arguments[6]),
+                t8.forGetter(config -> (T8) config.arguments[7]),
+                t9.forGetter(config -> (T9) config.arguments[8]),
+                t10.forGetter(config -> (T10) config.arguments[9]),
+                t11.forGetter(config -> (T11) config.arguments[10]),
+                t12.forGetter(config -> (T12) config.arguments[11]),
+                t13.forGetter(config -> (T13) config.arguments[12]),
+                t14.forGetter(config -> (T14) config.arguments[13]),
+                t15.forGetter(config -> (T15) config.arguments[14]),
+                t16.forGetter(config -> (T16) config.arguments[15])
         ).apply(instance, BasicFeatureJS.Config::new));
     }
 }
