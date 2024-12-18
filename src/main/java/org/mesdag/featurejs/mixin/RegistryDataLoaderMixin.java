@@ -30,13 +30,15 @@ public abstract class RegistryDataLoaderMixin {
 
     @Inject(method = "loadRegistryContents", at = @At("TAIL"))
     private static <E> void addConfiguredFeature(RegistryOps.RegistryInfoLookup pLookup, ResourceManager pManager, ResourceKey<? extends Registry<E>> pRegistryKey, WritableRegistry<E> pRegistry, Decoder<E> pDecoder, Map<ResourceKey<?>, Exception> pExceptions, CallbackInfo ci) {
-        if (FeatureJSPlugin.CONFIGURED.hasListeners() && pRegistryKey.equals(Registries.CONFIGURED_FEATURE)) {
+        if (pRegistryKey.equals(Registries.CONFIGURED_FEATURE)) {
             featurejs$configuredFeatureRegistry = pRegistry;
-            ConfiguredFeatureEventJS event = new ConfiguredFeatureEventJS();
-            FeatureJSPlugin.CONFIGURED.post(event);
-            for (ConfiguredFeatureEventJS.Builder builder : event.getBuilders()) {
-                ResourceKey<E> resourcekey = ResourceKey.create(pRegistryKey, builder.getId());
-                pRegistry.register(resourcekey, (E) builder.getFeature(), Lifecycle.stable());
+            if (FeatureJSPlugin.CONFIGURED.hasListeners()) {
+                ConfiguredFeatureEventJS event = new ConfiguredFeatureEventJS();
+                FeatureJSPlugin.CONFIGURED.post(event);
+                for (ConfiguredFeatureEventJS.Builder builder : event.getBuilders()) {
+                    ResourceKey<E> resourcekey = ResourceKey.create(pRegistryKey, builder.getId());
+                    pRegistry.register(resourcekey, (E) builder.getFeature(), Lifecycle.stable());
+                }
             }
         } else if (FeatureJSPlugin.PLACED.hasListeners() && pRegistryKey.equals(Registries.PLACED_FEATURE)) {
             if (featurejs$configuredFeatureRegistry instanceof MappedRegistry<?> mappedRegistry) {
@@ -46,8 +48,8 @@ public abstract class RegistryDataLoaderMixin {
                     ResourceKey<E> resourcekey = ResourceKey.create(pRegistryKey, builder.getId());
                     pRegistry.register(resourcekey, (E) builder.getFeature(), Lifecycle.stable());
                 }
-                featurejs$configuredFeatureRegistry = null;
             }
+            featurejs$configuredFeatureRegistry = null;
         }
     }
 }
