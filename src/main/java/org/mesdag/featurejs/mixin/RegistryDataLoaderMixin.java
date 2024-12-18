@@ -40,8 +40,8 @@ public abstract class RegistryDataLoaderMixin {
                     pRegistry.register(resourcekey, (E) builder.getFeature(), Lifecycle.stable());
                 }
             }
-        } else if (FeatureJSPlugin.PLACED.hasListeners() && pRegistryKey.equals(Registries.PLACED_FEATURE)) {
-            if (featurejs$configuredFeatureRegistry instanceof MappedRegistry<?> mappedRegistry) {
+        } else if (pRegistryKey.equals(Registries.PLACED_FEATURE)) {
+            if (FeatureJSPlugin.PLACED.hasListeners() && featurejs$configuredFeatureRegistry instanceof MappedRegistry<?> mappedRegistry) {
                 PlacedFeatureEventJS event = new PlacedFeatureEventJS((MappedRegistry<ConfiguredFeature<?, ?>>) mappedRegistry);
                 FeatureJSPlugin.PLACED.post(event);
                 for (PlacedFeatureEventJS.Builder builder : event.getBuilders()) {
