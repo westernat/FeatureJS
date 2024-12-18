@@ -18,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.injection.invoke.arg.ArgumentCountException;
 
 import java.util.Objects;
-import java.util.function.Function;
+import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
 @SuppressWarnings({"rawtypes", "unchecked", "unused"})
@@ -32,7 +32,7 @@ public class BasicFeatureJS extends Feature<BasicFeatureJS.Config> {
 
     @Override
     public boolean place(@NotNull FeaturePlaceContext<Config> context) {
-        return builder.placeFunction.apply(context);
+        return builder.placeFunction.apply(context, this);
     }
 
     @Override
@@ -74,7 +74,7 @@ public class BasicFeatureJS extends Feature<BasicFeatureJS.Config> {
 
     public static class Builder extends BuilderBase<Feature<Config>> {
         private Codec<Config> codec;
-        private Function<FeaturePlaceContext<Config>, Boolean> placeFunction = context -> false;
+        private BiFunction<FeaturePlaceContext<Config>, BasicFeatureJS, Boolean> placeFunction = (context, feature) -> false;
 
         public Builder(ResourceLocation i) {
             super(i);
@@ -92,7 +92,7 @@ public class BasicFeatureJS extends Feature<BasicFeatureJS.Config> {
             return this;
         }
 
-        public Builder place(Function<FeaturePlaceContext<Config>, Boolean> function) {
+        public Builder place(BiFunction<FeaturePlaceContext<Config>, BasicFeatureJS, Boolean> function) {
             this.placeFunction = function;
             return this;
         }

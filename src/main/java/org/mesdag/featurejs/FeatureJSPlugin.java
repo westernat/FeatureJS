@@ -8,6 +8,8 @@ import dev.latvian.mods.kubejs.registry.RegistryInfo;
 import dev.latvian.mods.kubejs.script.BindingsEvent;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.valueproviders.*;
+import net.minecraft.world.level.levelgen.VerticalAnchor;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.stateproviders.*;
 
@@ -15,6 +17,8 @@ public class FeatureJSPlugin extends KubeJSPlugin {
     public static final EventGroup GROUP = EventGroup.of("FeatureEvents");
     public static final EventHandler ON_PLACE = GROUP.server("onPlace", () -> FeaturePlaceEventJS.class).extra(Extra.ID);
     public static final EventHandler CONFIGURED = GROUP.server("configured", () -> ConfiguredFeatureEventJS.class);
+    public static final EventHandler PLACED = GROUP.server("placed", () -> PlacedFeatureEventJS.class);
+    public static final EventHandler BIOME_MODIFIERS = GROUP.server("biomeModifier", () -> BiomeModifierEventJS.class);
 
     @Override
     public void init() {
@@ -26,6 +30,8 @@ public class FeatureJSPlugin extends KubeJSPlugin {
         event.add("Codec", CodecWrapper.class);
         event.add("ExtraCodecs", ExtraCodecs.class);
         event.add("Feature", Feature.class);
+        event.add("BlockPredicate", BlockPredicate.class);
+        event.add("VerticalAnchor", VerticalAnchor.class);
 
         event.add("IntProvider", IntProvider.class);
         event.add("BiasedToBottomInt", BiasedToBottomInt.class);

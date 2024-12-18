@@ -2,6 +2,7 @@ package org.mesdag.featurejs;
 
 import dev.latvian.mods.kubejs.event.EventJS;
 import dev.latvian.mods.kubejs.registry.RegistryInfo;
+import dev.latvian.mods.kubejs.typings.Info;
 import dev.latvian.mods.rhino.util.HideFromJS;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -10,6 +11,7 @@ import org.mesdag.featurejs.mixed.IConfiguredFeature;
 import java.util.ArrayList;
 import java.util.List;
 
+@Info("To apply reload, you should exit your world and back again")
 @SuppressWarnings({"unused"})
 public class ConfiguredFeatureEventJS extends EventJS {
     private final List<Builder> builders = new ArrayList<>();
@@ -55,7 +57,7 @@ public class ConfiguredFeatureEventJS extends EventJS {
         }
 
         @HideFromJS
-        public ConfiguredFeature<BasicFeatureJS.Config, BasicFeatureJS> getConfig() {
+        public ConfiguredFeature<BasicFeatureJS.Config, BasicFeatureJS> getFeature() {
             ConfiguredFeature<BasicFeatureJS.Config, BasicFeatureJS> configuredFeature = new ConfiguredFeature<>(feature, config);
             ((IConfiguredFeature) (Record) configuredFeature).featurejs$setId(id);
             return configuredFeature;

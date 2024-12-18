@@ -6,7 +6,9 @@
     "refmap": "featurejs.refmap.json",
     "mixins": [
         "ConfiguredFeatureMixin",
-        "RegistryDataLoaderMixin"
+        "MinecraftServerMixin",
+        "RegistryDataLoaderMixin",
+        "ServerLifecycleHooksMixin"
     ],
     "client": [
     ],
