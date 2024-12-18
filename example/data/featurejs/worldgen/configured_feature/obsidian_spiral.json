@@ -1,0 +1,29 @@
+{
+    "type": "featurejs:spiral",
+    "config": {
+        "height": {
+            "type": "minecraft:uniform",
+            "value": {
+                "min_inclusive": 15,
+                "max_inclusive": 31
+            }
+        },
+        "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+                {
+                    "weight": 1,
+                    "data": {
+                        "Name": "minecraft:crying_obsidian"
+                    }
+                },
+                {
+                    "weight": 1,
+                    "data": {
+                        "Name": "minecraft:obsidian"
+                    }
+                }
+            ]
+        }
+    }
+}
