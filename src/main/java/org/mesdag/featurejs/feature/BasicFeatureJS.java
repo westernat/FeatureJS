@@ -1,4 +1,4 @@
-package org.mesdag.featurejs;
+package org.mesdag.featurejs.feature;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
@@ -14,6 +14,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import org.jetbrains.annotations.NotNull;
+import org.mesdag.featurejs.codec.CodecBuilder;
 import org.spongepowered.asm.mixin.injection.invoke.arg.ArgumentCountException;
 
 import java.util.function.BiFunction;
@@ -45,7 +46,7 @@ public class BasicFeatureJS extends Feature<BasicFeatureJS.Config> {
 
     public static class Config implements FeatureConfiguration {
         @HideFromJS
-        Object[] arguments;
+        public Object[] arguments;
 
         public Config(Object... arguments) {
             if (arguments.length == 0) {
@@ -70,7 +71,7 @@ public class BasicFeatureJS extends Feature<BasicFeatureJS.Config> {
         }
     }
 
-    public static class Builder extends BuilderBase<Feature<Config>> {
+    public static class Builder extends BuilderBase<BasicFeatureJS> {
         private Codec<Config> codec;
         private BiFunction<FeaturePlaceContext<Config>, BasicFeatureJS, Boolean> placeFunction = (context, feature) -> false;
 
@@ -101,7 +102,7 @@ public class BasicFeatureJS extends Feature<BasicFeatureJS.Config> {
         }
 
         @Override
-        public Feature<Config> createObject() {
+        public BasicFeatureJS createObject() {
             if (codec == null) {
                 this.codec = Codec.unit(Config::new);
             }

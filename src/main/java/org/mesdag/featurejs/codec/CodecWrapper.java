@@ -1,4 +1,4 @@
-package org.mesdag.featurejs;
+package org.mesdag.featurejs.codec;
 
 import com.mojang.datafixers.util.Either;
 import com.mojang.datafixers.util.Pair;

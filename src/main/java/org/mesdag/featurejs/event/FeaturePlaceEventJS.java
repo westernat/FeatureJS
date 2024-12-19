@@ -1,10 +1,11 @@
-package org.mesdag.featurejs;
+package org.mesdag.featurejs.event;
 
 import dev.latvian.mods.kubejs.server.ServerEventJS;
 import dev.latvian.mods.rhino.util.HideFromJS;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import org.mesdag.featurejs.feature.BasicFeatureJS;
 
-@SuppressWarnings({"unused"})
+@SuppressWarnings("unused")
 public class FeaturePlaceEventJS extends ServerEventJS {
     private final FeaturePlaceContext<BasicFeatureJS.Config> context;
     private final BasicFeatureJS feature;

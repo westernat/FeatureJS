@@ -1,9 +1,10 @@
-package org.mesdag.featurejs;
+package org.mesdag.featurejs.codec;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.latvian.mods.rhino.util.HideFromJS;
+import org.mesdag.featurejs.feature.BasicFeatureJS;
 import org.spongepowered.asm.mixin.injection.invoke.arg.ArgumentCountException;
 
 @HideFromJS
@@ -26,7 +27,7 @@ public class CodecBuilder<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13
     private MapCodec<T15> t15;
     private MapCodec<T16> t16;
 
-    void argument(MapCodec<?> mapCodec) {
+    public void argument(MapCodec<?> mapCodec) {
         if (t1 == null) {
             this.t1 = (MapCodec<T1>) mapCodec;
         } else if (t2 == null) {
@@ -64,7 +65,7 @@ public class CodecBuilder<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13
         }
     }
 
-    Codec<BasicFeatureJS.Config> build() {
+    public Codec<BasicFeatureJS.Config> build() {
         if (t1 == null) {
             throw new NullPointerException();
         }

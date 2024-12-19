@@ -10,9 +10,9 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import org.mesdag.featurejs.BasicFeatureJS;
 import org.mesdag.featurejs.FeatureJSPlugin;
-import org.mesdag.featurejs.FeaturePlaceEventJS;
+import org.mesdag.featurejs.event.FeaturePlaceEventJS;
+import org.mesdag.featurejs.feature.BasicFeatureJS;
 import org.mesdag.featurejs.mixed.IConfiguredFeature;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -38,9 +38,7 @@ public abstract class ConfiguredFeatureMixin<FC extends FeatureConfiguration, F 
     @HideFromJS
     @Override
     public void featurejs$setId(ResourceLocation id) {
-        if (config instanceof BasicFeatureJS.Config && feature instanceof BasicFeatureJS) {
-            this.featurejs$id = id;
-        }
+        this.featurejs$id = id;
     }
 
     @Inject(method = "place", at = @At("HEAD"), cancellable = true)

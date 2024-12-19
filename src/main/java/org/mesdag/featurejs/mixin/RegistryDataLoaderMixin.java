@@ -11,9 +11,9 @@ import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import org.mesdag.featurejs.ConfiguredFeatureEventJS;
 import org.mesdag.featurejs.FeatureJSPlugin;
-import org.mesdag.featurejs.PlacedFeatureEventJS;
+import org.mesdag.featurejs.event.ConfiguredFeatureEventJS;
+import org.mesdag.featurejs.event.PlacedFeatureEventJS;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -22,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Map;
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked", "rawtypes"})
 @Mixin(RegistryDataLoader.class)
 public abstract class RegistryDataLoaderMixin {
     @Unique

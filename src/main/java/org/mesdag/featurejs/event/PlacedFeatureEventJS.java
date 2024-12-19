@@ -1,5 +1,6 @@
-package org.mesdag.featurejs;
+package org.mesdag.featurejs.event;
 
+import com.google.common.collect.Lists;
 import dev.latvian.mods.kubejs.event.EventJS;
 import dev.latvian.mods.kubejs.typings.Info;
 import dev.latvian.mods.rhino.util.HideFromJS;
@@ -13,7 +14,6 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Info("To apply reload, you should exit your world and back again")
@@ -58,7 +58,7 @@ public class PlacedFeatureEventJS extends EventJS {
         }
 
         public Builder placement(PlacementModifier... modifiers) {
-            this.placement = Arrays.stream(modifiers).toList();
+            this.placement = Lists.newArrayList(modifiers);
             return this;
         }
 

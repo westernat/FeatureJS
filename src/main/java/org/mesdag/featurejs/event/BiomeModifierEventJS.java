@@ -1,4 +1,4 @@
-package org.mesdag.featurejs;
+package org.mesdag.featurejs.event;
 
 import com.google.common.collect.Sets;
 import com.google.gson.JsonElement;
@@ -23,7 +23,7 @@ import java.util.Set;
 
 @SuppressWarnings("unused")
 public class BiomeModifierEventJS extends ServerEventJS {
-    private static final Set<Decoration> ALL_DECORATIONS = Sets.newHashSet(Decoration.values());
+    private static final Set<Decoration> ALL_STEPS = Sets.newHashSet(Decoration.values());
     private final List<BiomeModifier> biomeModifiers = new ArrayList<>();
     private final RegistryOps<JsonElement> registryOps;
 
@@ -36,7 +36,7 @@ public class BiomeModifierEventJS extends ServerEventJS {
             @Param(name = "biomes"),
             @Param(name = "features"),
             @Param(name = "step")
-    })
+    }, value = "Add features for giving step")
     public void addFeatures(JsonElement biomesElement, JsonElement featuresElement, Decoration step) {
         HolderSet<Biome> biomes = Biome.LIST_CODEC.parse(registryOps, biomesElement).result().orElseThrow();
         HolderSet<PlacedFeature> features = PlacedFeature.LIST_CODEC.parse(registryOps, featuresElement).result().orElseThrow();
@@ -61,7 +61,7 @@ public class BiomeModifierEventJS extends ServerEventJS {
     public void removeFeatures(JsonElement biomesElement, JsonElement featuresElement) {
         HolderSet<Biome> biomes = Biome.LIST_CODEC.parse(registryOps, biomesElement).result().orElseThrow();
         HolderSet<PlacedFeature> features = PlacedFeature.LIST_CODEC.parse(registryOps, featuresElement).result().orElseThrow();
-        biomeModifiers.add(new RemoveFeaturesBiomeModifier(biomes, features, ALL_DECORATIONS));
+        biomeModifiers.add(new RemoveFeaturesBiomeModifier(biomes, features, ALL_STEPS));
     }
 
     @HideFromJS

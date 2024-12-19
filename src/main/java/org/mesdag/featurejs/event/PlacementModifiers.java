@@ -1,4 +1,4 @@
-package org.mesdag.featurejs;
+package org.mesdag.featurejs.event;
 
 import dev.latvian.mods.kubejs.typings.Info;
 import dev.latvian.mods.kubejs.typings.Param;
