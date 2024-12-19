@@ -1,6 +1,5 @@
 package org.mesdag.featurejs;
 
-import com.google.gson.JsonObject;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import dev.latvian.mods.kubejs.registry.BuilderBase;
@@ -93,10 +92,6 @@ public class BasicFeatureJS extends Feature<BasicFeatureJS.Config> {
 
         public Builder place(BiFunction<FeaturePlaceContext<Config>, BasicFeatureJS, Boolean> function) {
             this.placeFunction = function;
-            return this;
-        }
-
-        public Builder config(JsonObject config) {
             return this;
         }
 
