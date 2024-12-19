@@ -1,5 +1,5 @@
 StartupEvents.registry("minecraft:worldgen/feature", event => {
-    event.create("featurejs:stone_spiral").codec(Codec.INT.fieldOf("height"));
+    event.create("featurejs:stone_spiral");
 
     event.create("featurejs:spiral")
         .codec(
