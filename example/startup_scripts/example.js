@@ -1,12 +1,14 @@
 StartupEvents.registry("minecraft:worldgen/feature", event => {
+    // If you have not set a codec for it, then you can only configure it in kubejs.
+    // This situation also applies to the place method.
     event.create("featurejs:stone_spiral");
 
     event.create("featurejs:spiral")
-        .codec(
+        .codec( // The codec, allows you to use datapacks to configure it
             IntProvider.CODEC.fieldOf("height"),
             BlockStateProvider.CODEC.fieldOf("block")
         )
-        .place(context => {
+        .place(context => { // The place method, but not reloadable.
             let pos = context.origin();
             let config = context.config();
             let offset = Direction.NORTH;

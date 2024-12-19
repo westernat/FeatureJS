@@ -46,7 +46,6 @@ public class ConfiguredFeatureEventJS extends EventJS {
 
         public Builder config(Object... arguments) {
             int length = arguments.length;
-            if (length == 0) throw new IllegalArgumentException("No arguments found!");
             this.config = new BasicFeatureJS.Config(arguments);
             return this;
         }
