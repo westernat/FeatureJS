@@ -17,7 +17,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.injection.invoke.arg.ArgumentCountException;
 
-import java.util.Objects;
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
@@ -108,7 +107,10 @@ public class BasicFeatureJS extends Feature<BasicFeatureJS.Config> {
 
         @Override
         public Feature<Config> createObject() {
-            return new BasicFeatureJS(Objects.requireNonNull(codec), this);
+            if (codec == null) {
+                this.codec = Codec.unit(Config::new);
+            }
+            return new BasicFeatureJS(codec, this);
         }
     }
 }
