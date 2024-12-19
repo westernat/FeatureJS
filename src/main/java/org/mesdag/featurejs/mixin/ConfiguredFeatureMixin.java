@@ -43,10 +43,10 @@ public abstract class ConfiguredFeatureMixin<FC extends FeatureConfiguration, F 
 
     @Inject(method = "place", at = @At("HEAD"), cancellable = true)
     private void postEvent(WorldGenLevel pReader, ChunkGenerator pChunkGenerator, RandomSource pRandom, BlockPos pPos, CallbackInfoReturnable<Boolean> cir) {
-        if (featurejs$id != null && FeatureJSPlugin.ON_PLACE.hasListeners()) {
+        if (featurejs$id != null && FeatureJSPlugin.ON_PLACE.hasListeners() && config instanceof BasicFeatureJS.Config config1 && feature instanceof BasicFeatureJS feature1) {
             if (pReader.ensureCanWrite(pPos)) {
-                FeaturePlaceContext<BasicFeatureJS.Config> context = new FeaturePlaceContext<>(Optional.empty(), pReader, pChunkGenerator, pRandom, pPos, (BasicFeatureJS.Config) config);
-                FeaturePlaceEventJS event = new FeaturePlaceEventJS(context, (BasicFeatureJS) feature);
+                FeaturePlaceContext<BasicFeatureJS.Config> context = new FeaturePlaceContext<>(Optional.empty(), pReader, pChunkGenerator, pRandom, pPos, config1);
+                FeaturePlaceEventJS event = new FeaturePlaceEventJS(context, feature1);
                 FeatureJSPlugin.ON_PLACE.post(event, featurejs$id);
                 if (event.isUsed()) {
                     cir.setReturnValue(event.isSucceed());

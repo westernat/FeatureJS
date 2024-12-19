@@ -3,6 +3,13 @@ FeatureEvents.configured(event => {
     event.create("featurejs:configured_stone_spiral")
         .type("featurejs:stone_spiral")
         .config(15);
+    
+    event.create("featurejs:crafting_table_ore")
+        .type("minecraft:ore")
+        .oreConfiguration(properties => {
+            properties.size(17).addTarget("#minecraft:stone_ore_replaceables", "minecraft:crafting_table")
+        })
+
 })
 
 FeatureEvents.placed(event => {
@@ -12,14 +19,26 @@ FeatureEvents.placed(event => {
     event.create("featurejs:placed_stone_spiral")
         .feature("featurejs:configured_stone_spiral")
         .placement(
+            modifiers.count(1),
+            modifiers.inSquare(),
             modifiers.biomeFilter()
         );
+
+    event.create("featurejs:crafting_table_ore_upper")
+        .feature("featurejs:crafting_table_ore")
+        .placement(
+            modifiers.count(30),
+            modifiers.inSquare(),
+            modifiers.heightRangeUniform(VerticalAnchor.absolute(136), VerticalAnchor.belowTop(0)),
+            modifiers.biomeFilter()
+        )
 })
 
 FeatureEvents.biomeModifier(event => {
     // Adding features for biomes in kubejs directly.
     // The same allows you to create this in kubejs or datapacks.
     event.addFeatures("#minecraft:is_overworld", "featurejs:placed_stone_spiral", 'surface_structures');
+    event.addFeatures("#minecraft:is_overworld", "featurejs:crafting_table_ore_upper", 'underground_ores')
 })
 
 FeatureEvents.onPlace("featurejs:configured_stone_spiral", event => {

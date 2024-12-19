@@ -18,8 +18,6 @@ import org.mesdag.featurejs.event.ConfiguredFeatureEventJS;
 import org.mesdag.featurejs.event.FeaturePlaceEventJS;
 import org.mesdag.featurejs.event.PlacedFeatureEventJS;
 import org.mesdag.featurejs.feature.BasicFeatureJS;
-import org.mesdag.featurejs.feature.OreFeatureJS;
-import org.mesdag.featurejs.feature.ScatteredOreFeatureJS;
 
 public class FeatureJSPlugin extends KubeJSPlugin {
     public static final EventGroup GROUP = EventGroup.of("FeatureEvents");
@@ -31,8 +29,6 @@ public class FeatureJSPlugin extends KubeJSPlugin {
     @Override
     public void init() {
         RegistryInfo.FEATURE.addType("basic", BasicFeatureJS.Builder.class, BasicFeatureJS.Builder::new);
-        RegistryInfo.FEATURE.addType("ore", OreFeatureJS.Builder.class, OreFeatureJS.Builder::new);
-        RegistryInfo.FEATURE.addType("scattered_ore", ScatteredOreFeatureJS.Builder.class, ScatteredOreFeatureJS.Builder::new);
     }
 
     @Override
