@@ -17,7 +17,8 @@ import org.mesdag.featurejs.event.BiomeModifierEventJS;
 import org.mesdag.featurejs.event.ConfiguredFeatureEventJS;
 import org.mesdag.featurejs.event.FeaturePlaceEventJS;
 import org.mesdag.featurejs.event.PlacedFeatureEventJS;
-import org.mesdag.featurejs.feature.BasicFeatureJS;
+import org.mesdag.featurejs.object.BasicFeatureJS;
+import org.mesdag.featurejs.object.SaplingBlockJS;
 
 public class FeatureJSPlugin extends KubeJSPlugin {
     public static final EventGroup GROUP = EventGroup.of("FeatureEvents");
@@ -29,6 +30,7 @@ public class FeatureJSPlugin extends KubeJSPlugin {
     @Override
     public void init() {
         RegistryInfo.FEATURE.addType("basic", BasicFeatureJS.Builder.class, BasicFeatureJS.Builder::new);
+        RegistryInfo.BLOCK.addType("sapling", SaplingBlockJS.Builder.class, SaplingBlockJS.Builder::new);
     }
 
     @Override

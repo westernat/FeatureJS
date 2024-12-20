@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.latvian.mods.rhino.util.HideFromJS;
-import org.mesdag.featurejs.feature.BasicFeatureJS;
+import org.mesdag.featurejs.object.BasicFeatureJS;
 import org.spongepowered.asm.mixin.injection.invoke.arg.ArgumentCountException;
 
 @HideFromJS

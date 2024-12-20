@@ -21,3 +21,15 @@ StartupEvents.registry("minecraft:worldgen/feature", event => {
             return true;
         });
 })
+
+StartupEvents.registry("block", event => {
+    event.create("featurejs:blend_oak_tree", "sapling")
+        .basicFeature((random, hasFlower) => {
+            if (random.nextInt(10) == 0) {
+                return hasFlower ? "minecraft:fancy_oak_bees_005" : "minecraft:fancy_oak";
+            } else {
+                return hasFlower ? "minecraft:oak_bees_005" : "minecraft:oak";
+            }
+        })
+        .megaFeature(random => "minecraft:dark_oak");
+})

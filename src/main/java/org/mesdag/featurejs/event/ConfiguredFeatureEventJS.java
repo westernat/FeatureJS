@@ -10,8 +10,8 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import org.mesdag.featurejs.feature.BasicFeatureJS;
 import org.mesdag.featurejs.mixed.IConfiguredFeature;
+import org.mesdag.featurejs.object.BasicFeatureJS;
 
 import java.util.ArrayList;
 import java.util.List;

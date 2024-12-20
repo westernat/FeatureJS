@@ -1,4 +1,4 @@
-package org.mesdag.featurejs.feature;
+package org.mesdag.featurejs.object;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
