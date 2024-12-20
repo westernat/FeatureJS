@@ -22,7 +22,7 @@ import org.mesdag.featurejs.object.SaplingBlockJS;
 
 public class FeatureJSPlugin extends KubeJSPlugin {
     public static final EventGroup GROUP = EventGroup.of("FeatureEvents");
-    public static final EventHandler ON_PLACE = GROUP.server("onPlace", () -> FeaturePlaceEventJS.class).extra(Extra.ID);
+    public static final EventHandler ON_PLACE = GROUP.server("onPlace", () -> FeaturePlaceEventJS.class).extra(Extra.REQUIRES_ID);
     public static final EventHandler CONFIGURED = GROUP.server("configured", () -> ConfiguredFeatureEventJS.class);
     public static final EventHandler PLACED = GROUP.server("placed", () -> PlacedFeatureEventJS.class);
     public static final EventHandler BIOME_MODIFIERS = GROUP.server("biomeModifier", () -> BiomeModifierEventJS.class);
